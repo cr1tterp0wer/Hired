@@ -1,0 +1,70 @@
+/* line 7, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+* {
+  position: relative;
+  box-sizing: border-box;
+  font-family: Arial;
+  transition: 250ms;
+}
+
+/* line 13, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #222222;
+}
+
+/* line 18, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+ul {
+  margin: 0;
+  list-style: none;
+}
+
+/* line 23, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+header {
+  background-color: #94a3b3;
+}
+
+/* line 27, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+a {
+  color: #4b4e6d;
+  text-decoration: none;
+}
+
+/* line 32, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+#gh-links {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: 1fr;
+}
+/* line 37, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+#gh-links li {
+  font-weight: 800;
+  color: #222222;
+  padding: 15px;
+  text-align: center;
+}
+/* line 43, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+#gh-links li:hover {
+  background-color: #222222;
+  color: white;
+}
+/* line 47, /home/cr1tterp0wer/Projects/Hired/hired/app/assets/stylesheets/layout.scss */
+#gh-links li:hover a {
+  color: white;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

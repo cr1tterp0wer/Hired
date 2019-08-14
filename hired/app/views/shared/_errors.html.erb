@@ -1,0 +1,9 @@
+<div class="errors">
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do | error | %>
+        <li class="flash-slow"> <%= error %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

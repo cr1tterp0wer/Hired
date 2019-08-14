@@ -1,0 +1,6 @@
+<nav id="logged-header">
+  <ul id="lh-links" class="header-links">
+    <li><%= link_to "Home", user_url( current_user ) %></li>
+    <li><%= link_to "Logout", session_url, method: :delete%></li>  
+  </ul>
+</nav>

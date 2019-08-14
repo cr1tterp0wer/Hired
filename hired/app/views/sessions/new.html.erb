@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<div id="login" class="form-wrap">
+  <form action="<%= sessions_path %>" method="post" >
+
+    <%= render 'shared/auth' %> 
+    <input type="hidden" name="_method" value="post">
+
+    <%= render 'shared/errors' %>
+    <input placeholder="username" type="text" id="login-form-username" name="user[username]" value"" />
+    <input placeholder="password" type="password" id="login-form-password" name="user[password]" value"" />
+
+    <input type="submit" value="login" />
+  </form>
+</div>
+
+
+
