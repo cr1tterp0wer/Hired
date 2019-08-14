@@ -1,18 +1,31 @@
-<h1>Login</h1>
+<div class="container pt-5 form-container">
 
-<div id="login" class="form-wrap">
-  <form action="<%= sessions_path %>" method="post" >
+  <div class="form-back p-4 container">
+    <h1>Login</h1>
 
-    <%= render 'shared/auth' %> 
-    <input type="hidden" name="_method" value="post">
+    <div id="login" class="form-wrap jumbotron">
+      <form action="<%= sessions_path %>" method="post" >
 
-    <%= render 'shared/errors' %>
-    <input placeholder="username" type="text" id="login-form-username" name="user[username]" value"" />
-    <input placeholder="password" type="password" id="login-form-password" name="user[password]" value"" />
+        <%= render 'shared/auth' %> 
+        <input type="hidden" name="_method" value="post">
+        <%= render 'shared/errors' %>
 
-    <input type="submit" value="login" />
-  </form>
+        <div class="form-group">
+          <label for="login-form-username">Username</label>
+          <input class="form-control" placeholder="Enter username" type="text" 
+            id="login-form-username" name="user[username]" value"" />
+        </div>
+
+        <div class="form-group">
+          <label for="login-form-password">Password</label>
+          <input class="form-control" placeholder="Password" type="password" 
+            id="login-form-password" name="user[password]" value"" />
+        </div>
+
+        <button class="btn btn-primary" type="submit" value="login">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
-
 
 

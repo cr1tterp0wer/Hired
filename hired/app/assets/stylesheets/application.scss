@@ -15,7 +15,9 @@
  *= require sessions
  *= require users
  *= require layout
+ *= require font-awesome
  */
+@import "font-awesome";
 @import "bootstrap";
 @import "scaffolds";
 @import "sessions";

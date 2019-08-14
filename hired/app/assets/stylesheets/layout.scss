@@ -1,8 +1,16 @@
 $black:#222222;
 $white:white;
+$off-white: #fcfcfc;
 $purple: #4b4e6d;
 $aqua: #84dcc6;
+$magenta: #DC0073;
+$magenta-dark: #a7065a;
+$blue: #008BF8;
 $gray:#94a3b3;
+
+.bg-magenta{
+  background-color: $magenta;
+}
 
 *{
   position:relative;
@@ -14,41 +22,70 @@ html,body{
   margin:0;
   padding:0;
   color: $black;
+  min-height:100vh;
+  height:100%;
 }
 ul{
   margin:0;
   list-style:none;
 }
 
-header{
-  background-color:$gray;
-}
-
 a{
   color:$purple;
   text-decoration:none;
 }
-
-#gh-links{   
+//bootstrap overrides
+.btn-primary{
+  color: #fff;
+  background-color: $magenta;
+  border-color: $magenta-dark;
+ 
+  &:hover{
+    background-color: $magenta-dark;
+    border-color: $magenta;
+  }
+}
+.jumbotron{
+  background-color:$off-white;
+}
+//custom
+#full-content{
+  height:100%;
   display:grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows:1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows:auto;
+}
 
-  li{
-    font-weight:800;
-    color:$black;
-    padding:15px;
-    text-align:center;
+.form-container{
+  max-width:600px;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content:center;
+  align-content: center;
+  padding:1em;
+}
+.form-back{
+  background-color:$white;
+  border-radius:5px;
+}
 
-    &:hover{
-      background-color:$black;
-      color:$white;
+footer{
+  display:grid;
+  align-items: center;
+}
 
-      a{
-        color:$white;
-      }
+ul#footer-list{
+  color:white;
+  text-align:center;
+}
+.social-icon-list{
+  text-align:center;
+  a{
+    font-size:20pt;
+    i{
+      color:$magenta-dark;
     }
   }
 }
-
 
