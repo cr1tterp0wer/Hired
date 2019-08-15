@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find( params[:id] )
+    redirect_to user_path( current_user ) unless current_user == @user
   end
 
   # GET /users/new

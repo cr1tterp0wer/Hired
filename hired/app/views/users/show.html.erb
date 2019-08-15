@@ -1,4 +1,208 @@
-<h1>User Show</h1>
+<div id="user-content" class="inner-content p-1">
   <ul>
-    <li><%= @user.username %></li>
+    <li class="white-txt">Welcome, <%= @user.username %></li>
   </ul>
+</div>
+
+
+<div id="nst-store" class="p-3">
+  <div id="store-header">
+    <h3 class="text-center">Current Store Items</h3>
+    <img id="store-logo" class="clearfix logo-img pr-3" src="/assets/bg/logo.svg" />
+  </div>
+  <hr>
+  <div id="collection-component-1565893802445">&nbsp;</div>
+</div>
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+(function ($) {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  
+  function round( value, precision ){
+    var multiplier = Math.pow( 10, precision || 0 );
+    return Math.round( value * multiplier ) / multiplier;
+  }
+
+  function addCurrencySpecsItem(elem){
+    var mxn_rate = null;
+    var target = elem;
+    $.getJSON( 'https://api.exchangeratesapi.io/latest?symbols=USD,MXN&base=USD', function( data ){
+      mxn_rate = data.rates.MXN;
+      mxn_rate = round( mxn_rate, 3 ).toFixed(2);
+    }).then(function(rate){
+        var usd_price = $(target).text().split(' ')[1].split("$")[1];
+        console.log(mxn_rate);
+        var mxn_price = ( usd_price * mxn_rate ).toFixed(2);
+        var text = $(target).text();
+
+        if( mxn_price !== null ){
+          $(target).text(text + ' (MXN $' + mxn_price + ')' ); 
+        }
+    });
+  }
+
+  function addCurrencySpecs(){
+   $('.shopify-buy__product__actual-price').each( function( i, e ){
+     addCurrencySpecsItem( e );
+    });
+  }
+
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'nearshore-shop.myshopify.com',
+      storefrontAccessToken: '8699c2da26d91e94b6b15d1be937cea5',
+    });
+
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('collection', {
+        id: '138392797237',
+        node: document.getElementById('collection-component-1565893802445'),
+        moneyFormat: 'USD %24%7B%7Bamount%7D%7D',
+        options: {
+          "product": {
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": {
+                  "max-width": "calc(25% - 20px)",
+                  "margin-left": "20px",
+                  "margin-bottom": "50px"
+                },
+                "img": {
+                  "height": "calc(100% - 15px)",
+                  "position": "absolute",
+                  "left": "0",
+                  "right": "0",
+                  "top": "0"
+                },
+                "imgWrapper": {
+                  "padding-top": "calc(75% + 15px)",
+                  "position": "relative",
+                  "height": "0"
+                }
+              },
+              "button": {
+                "font-weight": "bold",
+                ":hover": {
+                  "background-color": "#e69e38"
+                },
+                "background-color": "#ffaf3e",
+                ":focus": {
+                  "background-color": "#e69e38"
+                }
+              }
+            },
+            "text": {
+              "button": "Add to cart"
+            }
+          },
+          "productSet":{
+            "iframe":false,
+          },
+          "productSets": {
+            "iframe": false,
+            "styles": {
+              "products": {
+                "@media (min-width: 601px)": {
+                  "margin-left": "-20px"
+                }
+              }
+            }
+          },
+          "modalProduct": {
+            "contents": {
+              "img": false,
+              "imgWithCarousel": true,
+              "button": false,
+              "buttonWithQuantity": true
+            },
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": {
+                  "max-width": "100%",
+                  "margin-left": "0px",
+                  "margin-bottom": "0px"
+                }
+              },
+              "button": {
+                "font-weight": "bold",
+                ":hover": {
+                  "background-color": "#e69e38"
+                },
+                "background-color": "#ffaf3e",
+                ":focus": {
+                  "background-color": "#e69e38"
+                }
+              }
+            },
+            "text": {
+              "button": "Add to cart"
+            }
+          },
+          "cart": {
+            "styles": {
+              "button": {
+                "font-weight": "bold",
+                ":hover": {
+                  "background-color": "#e69e38"
+                },
+                "background-color": "#ffaf3e",
+                ":focus": {
+                  "background-color": "#e69e38"
+                }
+              }
+            },
+            "text": {
+              "total": "Subtotal",
+              "button": "Checkout"
+            }
+          },
+          "toggle": {
+            "styles": {
+              "button": {
+                "font-weight": "bold"
+              },
+              "toggle": {
+                "background-color": "#ffaf3e",
+                ":hover": {
+                  "background-color": "#e69e38"
+                },
+                ":focus": {
+                  "background-color": "#e69e38"
+                }
+              }
+            }
+          }
+        },
+      }).then(  function(){  
+        addCurrencySpecs();
+        }).then( function(){
+          $('.shopify-buy__option-select__select').change( function(e){ 
+            var price =  $($($($(e.target).parent()[0]).parent()[0]).parent()[0]).siblings('.shopify-buy__product__price').find('.shopify-buy__product__actual-price')[0];
+            console.log(price);
+            addCurrencySpecsItem( $(price) );
+          }); 
+      });
+    });
+  }
+})(jQuery);
+/*]]>*/
+</script>

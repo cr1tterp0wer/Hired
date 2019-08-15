@@ -10,6 +10,40 @@ $magenta-evil: #6d033a;
 $blue: #008BF8;
 $gray:#94a3b3;
 
+.black-txt{
+  color:$black;
+}
+.white-txt{
+  color:$white;
+}
+.off-white-txt{
+  color: $off-white;
+}
+.purple-txt{
+  color: $purple;
+}
+.aqua-txt{
+  color: $aqua;
+}
+.magenta-bright-txt{
+  color: $magenta-bright;
+}
+.magenta-txt{
+  color: $magenta;
+}
+.magenta-dark-txt{
+  color: $magenta-dark;
+}
+.magenta-evil-txt{
+  color: $magenta-evil;
+}
+.blue-txt{
+  color: $blue;
+}
+.gray-txt{
+  color: $gray;
+}
+
 .bg-magenta{
   background-color: $magenta;
 }
@@ -35,6 +69,7 @@ label{
   color:$black;
 }
 ul{
+  padding:0;
   margin:0;
   list-style:none;
 }
@@ -62,16 +97,21 @@ a{
   height:100%;
   display:grid;
   grid-template-columns: 1fr;
-  grid-template-rows:auto;
+  grid-template-rows: 56px auto auto;
 }
-#content{
+.inner-content{
+  height:100%;
+}
+#login-content.inner-content{
   display:block;
   position:relative;
   background-image: url(/assets/bg/golden-arch.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
-
+#user-content.inner-content{
+  background-color:$magenta-bright;
+}
 .form-container{
   max-width:600px;
   display:grid;
@@ -113,4 +153,172 @@ ul#footer-list{
     }
   }
 }
+#store-logo{
+  max-width:250px;
+}
+#store-header{
+  display:grid;
+  grid-template-columns:auto auto;
+  justify-items:right;
+  align-items:center;
+
+}
+.clearfix{
+  &::after{
+    display:block;
+    content:"";
+    clear:both;
+  }
+}
+
+//SHOPIFY
+.shopify-buy__collection-products.shopify-buy-frame.shopify-buy-frame--product.shopify-buy-frame.shopify-buy-frame--product{
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    height:100%;
+    min-height: 476px;
+    text-align:center;
+}
+.has-image.shopify-buy__layout-vertical.shopify-buy__product {
+  display: inline-block;
+  text-align:center;
+}
+.shopify-buy__product{
+  min-width: 240px;
+  width: auto;
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+.shopify-buy__product-img-wrapper{
+  margin-bottom:15px;
+  margin-bottom: 15px;
+  display: block;
+  padding-top: calc(75% + 15px);
+  position: relative;
+  height: 0;
+}
+img.shopify-buy__product__variant-img{
+    height: calc(100% - 15px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto 15px auto;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    width:100%;
+}
+.shopify-buy__product__title {
+  font-size: 18px;
+  line-height: 1.2;
+  color: $black;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.shopify-buy__layout-vertical {
+  text-align: center;
+}
+label.shopify-buy__option-select__label.visuallyhidden{
+  display:none;
+}
+.shopify-buy__product__variant-selectors {
+    text-align: left;
+    font-size: 14px;
+}
+.shopify-buy__option-select-wrapper {
+    border: 1px solid #d3dbe2;
+    border-radius: 3px;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+.shopify-buy__option-select__select {
+    font-size: inherit;
+    padding: 7px 10px;
+    padding-right: 32px;
+    border: 0;
+    width: 100%;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.shopify-buy__select-icon {
+    cursor: pointer;
+    display: block;
+    fill: #798c9c;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -6px;
+    pointer-events: none;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+}
+.shopify-buy__btn-wrapper {
+    margin: 20px auto;
+}
+.shopify-buy__btn {
+    font-weight: bold;
+    background-color: #ffaf3e;
+}
+.shopify-buy__btn {
+    color: #fff;
+    font-size: 15px;
+    padding: 12px 40px;
+    letter-spacing: .3px;
+    display: block;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 200ms ease;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.2;
+    border: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width:100%;
+    &.undefined{
+      background-color:gray;
+    }
+}
+.shopify-buy__btn.shopify-buy__collection-pagination-button{
+  display:none;
+}
+@media (min-width:610px){
+  max-width: calc(25% - 20px);
+  margin-left: 20px;
+  margin-bottom: 50px;
+
+  .shopify-buy__product + .shopify-buy__product{
+    margin-top:0;
+  }
+  .shopify-buy__product {
+    max-width: calc(25% - 20px);
+    margin-left: 20px;
+    margin-bottom: 50px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
