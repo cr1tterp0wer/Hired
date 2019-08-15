@@ -1,10 +1,12 @@
-$black:#222222;
+$black:#080705;
 $white:white;
 $off-white: #fcfcfc;
 $purple: #4b4e6d;
 $aqua: #84dcc6;
-$magenta: #DC0073;
-$magenta-dark: #a7065a;
+$magenta-bright: #DC0073;
+$magenta: #AA1155;
+$magenta-dark:#880044;
+$magenta-evil: #6d033a;
 $blue: #008BF8;
 $gray:#94a3b3;
 
@@ -24,6 +26,13 @@ html,body{
   color: $black;
   min-height:100vh;
   height:100%;
+  color:$black;
+}
+h1,h2{
+  color:$black;
+}
+label{
+  color:$black;
 }
 ul{
   margin:0;
@@ -37,7 +46,7 @@ a{
 //bootstrap overrides
 .btn-primary{
   color: #fff;
-  background-color: $magenta;
+  background-color: $magenta-bright;
   border-color: $magenta-dark;
  
   &:hover{
@@ -54,6 +63,13 @@ a{
   display:grid;
   grid-template-columns: 1fr;
   grid-template-rows:auto;
+}
+#content{
+  display:block;
+  position:relative;
+  background-image: url(/assets/bg/golden-arch.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .form-container{
@@ -73,6 +89,7 @@ a{
 footer{
   display:grid;
   align-items: center;
+  border-top: 3px solid $magenta-bright;
 }
 
 ul#footer-list{
@@ -83,8 +100,16 @@ ul#footer-list{
   text-align:center;
   a{
     font-size:20pt;
+    cursor:pointer;
+
     i{
       color:$magenta-dark;
+      width:50px;
+    }
+    &:hover{
+      i{
+        color: $magenta-evil;
+      }
     }
   }
 }
