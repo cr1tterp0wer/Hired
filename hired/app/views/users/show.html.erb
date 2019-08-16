@@ -14,7 +14,6 @@
   <div id="collection-component-1565893802445">&nbsp;</div>
 </div>
 
-
 <script type="text/javascript">
 /*<![CDATA[*/
 (function ($) {
@@ -50,7 +49,6 @@
       mxn_rate = round( mxn_rate, 3 ).toFixed(2);
     }).then(function(rate){
         var usd_price = $(target).text().split(' ')[1].split("$")[1];
-        console.log(mxn_rate);
         var mxn_price = ( usd_price * mxn_rate ).toFixed(2);
         var text = $(target).text();
 
@@ -197,7 +195,6 @@
         }).then( function(){
           $('.shopify-buy__option-select__select').change( function(e){ 
             var price =  $($($($(e.target).parent()[0]).parent()[0]).parent()[0]).siblings('.shopify-buy__product__price').find('.shopify-buy__product__actual-price')[0];
-            console.log(price);
             addCurrencySpecsItem( $(price) );
           }); 
       });

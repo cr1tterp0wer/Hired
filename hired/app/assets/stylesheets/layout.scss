@@ -291,10 +291,6 @@ label.shopify-buy__option-select__label.visuallyhidden{
   display:none;
 }
 @media (min-width:610px){
-  max-width: calc(25% - 20px);
-  margin-left: 20px;
-  margin-bottom: 50px;
-
   .shopify-buy__product + .shopify-buy__product{
     margin-top:0;
   }
@@ -302,6 +298,7 @@ label.shopify-buy__option-select__label.visuallyhidden{
     max-width: calc(25% - 20px);
     margin-left: 20px;
     margin-bottom: 50px;
+    width:100%;
   }
 }
 
