@@ -7,7 +7,6 @@
 #  updated_at      :datetime         not null
 #  username        :string           default(""), not null
 #  password_digest :string           default(""), not null
-#  session_token   :integer          default(0), not null
 #
 
 class User < ApplicationRecord
